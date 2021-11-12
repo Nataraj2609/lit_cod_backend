@@ -5,6 +5,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.sql.Timestamp;
 
 @Entity
@@ -16,8 +18,10 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column
-    private String name;
+    @NotBlank(message = "Name is mandatory.")
+    @Size(min = 5, max = 40)
+    @Column(name = "name")
+    private String categoryName;
 
     @CreationTimestamp
     private Timestamp createdDate;

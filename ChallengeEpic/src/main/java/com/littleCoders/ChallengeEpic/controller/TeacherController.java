@@ -6,10 +6,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/teacher")
-public class TeacherController {
+public class TeacherController{
 
     @GetMapping
     public String getM(){
         return "I am Teacher";
     }
+
 }
